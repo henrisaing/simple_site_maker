@@ -21,6 +21,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -82,12 +83,20 @@
 
         @yield('content')
     </div>
-    <div id="overlay">
-        <div id="light-box"></div>
-    </div>
+    <!-- lightbox popup div -->
+    <div id="light" class="white_content">
+            <div id="lightbox-content"> Opps! Error has occured.</div> 
+            <div class="lb-close">
+                <!-- <a href="#" class="lightbox-close">Close</a> -->
+                {!! Form::button('close',[
+                  'class' => 'lightbox-close button-red',
+                ]) !!}
+            </div>
+          </div>
+    <div id="fade" class="black_overlay"></div>
+    <!-- lightbox popup div end -->
     <!-- Scripts -->
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
