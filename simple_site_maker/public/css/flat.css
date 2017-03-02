@@ -74,12 +74,15 @@ div.contain-left{
   display:block;
   width:49%;
   float:left;
+  position: relative;
 }
 
 div.contain-right{
   display:block;
   width:49%;
   float:right;
+    position: relative;
+
 }
 
   /*contain colors*/
