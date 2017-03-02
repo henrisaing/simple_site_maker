@@ -1,44 +1,25 @@
 $(document).ready(function(){
-  $('a').on('click', function(event){
-    if(this.hash !==""){
-      event.preventDefault();
-      hideNav();
-      var hash = this.hash;
+  $('a.lightbox-open , button.lightbox-open').click(function(){
+    $('#fade').css('display','block');
+    $('#light').css('display','block');
 
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800,function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    }
+    //get func attr
+    // console.log($(this).attr('func'));
+    $.get($(this).attr('func'), function(data){
+      $("#lightbox-content").html(data);
+    });
+  });
+  
+  // undarkens background
+  $('a.lightbox-close , button.lightbox-close').click(function(){
+    $('#fade').css('display','none');
+    $('#light').css('display','none');
   });
 
-$('nav').hide();
-
-$('#nav-button-close').click(function(e){
-  e.preventDefault();
-  // $('nav').hide();
-  // $('#nav-button-open').show();
-  hideNav();
-});
-
-$('#nav-button-open').click(function(e){
-  e.preventDefault();
-  showNav();
-  // $('nav').show();
-  // $('#nav-button-open').hide();
-});
-
-function hideNav(){
-  $('nav').hide();
-  $('#nav-button-open').show();
-}
-
-function showNav(){
-  $('nav').show();
-  $('#nav-button-open').hide();
-}
-
+  //main ajax calls
+  $('a.ajax-main , button.ajax-main').click(function(){
+    $.get($(this).attr('func'), function(data){
+      $("#main").html(data);
+    });
+  });
 });
