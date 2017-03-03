@@ -11,6 +11,8 @@ class Page extends Model
     'title',
     'info',
     'background_image',
+    'color_id_text',
+    'color_id_background',
   ];
 
   public function site(){

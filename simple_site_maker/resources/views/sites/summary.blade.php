@@ -13,9 +13,12 @@
   ]) !!}
     </div> 
     <?php foreach ($pages as $page): ?>
+      <a class="lightbox-open" func="/page/{{$page->id}}/edit">
+      <div class="clear" style="background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
        {{$page->title}} |
        {{$page->info}}
-       <br>
+     </div>
+     </a>
     <?php endforeach ?> 
   </div>
   
@@ -44,4 +47,15 @@
   </div>
 </div>
 <!-- end contain  -->
+
+@if(App::environment('local'))
+<h3>Debug</h3>
+<hr>
+<?php print_r($site->colors()->where('type', 'text')->get()->pluck('name','id')); ?>
+<hr>
+<?php print_r($site->colors()->where('type', 'background')->get()->pluck('name','id')); ?>
+
+
+@endif
+
 @endsection

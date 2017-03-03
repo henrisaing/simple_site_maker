@@ -21,10 +21,14 @@ Route::get('/sites/new', 'SiteController@new');
 Route::post('/sites/create', 'SiteController@create');
 Route::get('/sites/{site}/summary', 'SiteController@summary');
 
+
 // pages routes
 Route::get('/site/{site}/pages', 'PageController@index');
 Route::get('/site/{site}/pages/new', 'PageController@new');
 Route::post('/site/{site}/pages/create', 'PageController@create');
+Route::get('/page/{page}/edit', 'PageController@edit');
+Route::post('/page/{page}/update', 'PageController@update');
+
 
 // color routes
 Route::get('/site/{site}/colors', 'ColorController@index');
