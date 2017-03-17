@@ -15,5 +15,6 @@ notes {!! Form::textarea('notes', null, [
 <br>
   {!! Form::button('create site',[
     'type' => 'submit',
+    'class' => 'lb-close bg-green',
   ]) !!}
 {!! Form::close() !!}

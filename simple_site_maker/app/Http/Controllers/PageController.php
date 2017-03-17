@@ -46,7 +46,7 @@ class PageController extends Controller
       'title' => $request->title,
       'info' => $request->info,
       'color_id_text' => $request->color_text,
-      'color_background' => $request->color_background,
+      'color_id_background' => $request->color_background,
     ]);
     return redirect('/sites/'.$site->id.'/summary');
   }

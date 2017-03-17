@@ -85,14 +85,14 @@
     </div>
     <!-- lightbox popup div -->
     <div id="light" class="white_content">
-            <div id="lightbox-content"> Opps! Error has occured.</div> 
-            <div class="lb-close">
-                <!-- <a href="#" class="lightbox-close">Close</a> -->
-                {!! Form::button('close',[
-                  'class' => 'lightbox-close button-red',
-                ]) !!}
-            </div>
-          </div>
+        <div id="lightbox-content"> Opps! Error has occured.</div> 
+        <div class="lb-close">
+            <!-- <a href="#" class="lightbox-close">Close</a> -->
+            {!! Form::button('close',[
+              'class' => 'lightbox-close bg-red',
+            ]) !!}
+        </div>
+    </div>
     <div id="fade" class="black_overlay"></div>
     <!-- lightbox popup div end -->
     <!-- Scripts -->

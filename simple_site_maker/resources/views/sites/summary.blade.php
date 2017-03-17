@@ -1,16 +1,16 @@
 <!-- resources/views/sites/summary.blade.php -->
 @extends('layouts.app')
 @section('content')
-<div class="contain contain-grey">
-  <div class="header header-grey">{{$site->name}} summary</div>
+<div class="contain bg-grey">
+  <div class="header bg-light-grey">{{$site->name}} summary <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a></div>
 
-  <div class="contain contain-left contain-grey">
-    <div class="header header-grey">
+  <div class="contain contain-left bg-grey">
+    <div class="header bg-light-grey">
     Pages
-  {!! Form::button('+',[
-    'func' => '/site/'.$site->id.'/pages/new',
-    'class' => 'lightbox-open clear',
-  ]) !!}
+      {!! Form::button('+',[
+        'func' => '/site/'.$site->id.'/pages/new',
+        'class' => 'lightbox-open clear',
+      ]) !!}
     </div> 
     <?php foreach ($pages as $page): ?>
       <a class="lightbox-open" func="/page/{{$page->id}}/edit">
@@ -22,8 +22,8 @@
     <?php endforeach ?> 
   </div>
   
-  <div class="contain contain-right contain-grey">
-    <div class="header header-grey">Colors   
+  <div class="contain contain-right bg-grey">
+    <div class="header bg-light-grey">Colors   
       {!! Form::button('+',[
       'func' => '/site/'.$site->id.'/colors/new',
       'class' => 'lightbox-open clear',
@@ -50,6 +50,15 @@
 
 @if(App::environment('local'))
 <h3>Debug</h3>
+    <?php foreach ($pages as $page): ?>
+    back:
+      {{$colors->where('id', $page->color_id_background)->first()}}; 
+      <br>
+    color:
+      {{$colors->where('id', $page->color_id_text)->first()}}"
+       {{$page->title}} |
+       {{$page->info}}
+    <?php endforeach ?> 
 <hr>
 <?php print_r($site->colors()->where('type', 'text')->get()->pluck('name','id')); ?>
 <hr>

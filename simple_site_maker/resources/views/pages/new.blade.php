@@ -12,5 +12,6 @@ background color {!! Form::select('color_background', $colorsBack) !!}
 <br>
   {!! Form::button('add page',[
     'type' => 'submit',
+    'class' => 'lb-close bg-green',
   ]) !!}
 {!! Form::close() !!}

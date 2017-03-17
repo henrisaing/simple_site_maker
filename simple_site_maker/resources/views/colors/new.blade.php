@@ -14,6 +14,7 @@ name {!! Form::text('name', null, [
 <br>
   {!! Form::button('add color',[
     'type' => 'submit',
+    'class' => 'lb-close bg-green',
   ]) !!}
 {!! Form::close() !!}
 

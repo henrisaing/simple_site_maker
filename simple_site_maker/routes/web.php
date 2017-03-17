@@ -37,6 +37,8 @@ Route::post('/site/{site}/colors/create', 'ColorController@create');
 Route::get('/color/{color}/edit', 'ColorController@edit');
 Route::post('/color/{color}/update', 'ColorController@update');
 
+// preview routes
+Route::get('/site/{site}/preview', 'SiteController@preview');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

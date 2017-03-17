@@ -1,0 +1,123 @@
+/*format
+<div class="parallax parallax-img-1">
+  <div class="fade-white">
+    <div class="mid-text">Header?</div>
+  </div>
+</div>
+<div class="content background-pinkish text-green" id="s1"> 
+ <p>
+   content info 
+ </p>
+</div>
+*/
+
+body, html {
+    margin:0;
+    height: 100%;
+}
+.parallax{
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-img-1 { 
+    /* The image used */
+    background-image: url("../img/image1.JPG");
+}
+.parallax-img-2 { 
+    /* The image used */
+    background-image: url("../img/rose.jpg");
+}
+.parallax-img-3 { 
+    /* The image used */
+    background-image: url("../img/image2.JPG");
+}
+.parallax-img-4 { 
+    /* The image used */
+    background-image: url("../img/remix.JPG");
+}
+
+.content{
+    max-height:100%;
+    width:80%;
+    font-size:2em;
+    padding:50px 10%;
+    text-align:center;
+    word-wrap: break-word;
+    font-weight:300;
+    font-family: 'Lora', serif;
+}
+
+.full-div{
+    width:100%;
+    padding:0;)
+}
+
+.fade-white{
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,0.3);
+}
+
+.mid-text{
+    /*display:block;*/
+    position:relative;
+    top:50%;
+    left:0%;
+    /*background-color:#373737;*/
+    /*background-color:#9F727C;*/
+    /*color:#fff;*/
+    font-size:6em;
+    text-align:center;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    /*font-family: 'Fredericka the Great', cursive;*/
+    /*font-family: 'Prata', serif;*/
+    /*font-family: 'Marcellus SC', serif;*/
+    /*font-family: 'Cinzel Decorative', cursive;*/
+    font-family: 'Playfair Display SC', serif;
+}
+
+/*background colors*/
+.background-dark{
+    background-color:#373737;
+}
+.background-light{
+    background-color:#F4F4F4;
+}
+.background-silk{
+    background-color:#DCD0C0;
+}
+.background-pinkish{
+    background-color:#D8C6C6;
+}
+/*40,46,52*/
+
+/*text-colors*/
+.text-light{
+    color:#F4F4F4;
+}
+.text-dark{
+    color:#373737;
+}
+.text-green{
+    color:#475957;
+}
+
+/*responsive*/
+
+/*480*/
+@media screen and (max-width: 480px){
+    .mid-text{
+        font-size:2em;
+    }
+
+    .content{
+        font-weight:300;
+    }
+}

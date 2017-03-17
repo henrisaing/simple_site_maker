@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Site;
 use Auth;
+use App\Color;
 
 class SiteController extends Controller
 {
@@ -42,4 +43,16 @@ class SiteController extends Controller
       'colors' => $colors,
     ]);
   }
+
+  public function preview(Site $site){
+    $pages = $site->pages()->get();
+    $colors = $site->colors()->get();
+    return view('preview.site', [
+      'site' => $site,
+      'pages' => $pages,
+      'colors' => $colors,
+    ]);
+  }
+
+
 }

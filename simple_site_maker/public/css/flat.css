@@ -43,20 +43,35 @@ button:hover{
   background-color:black;
   color:#fff;
 }
-  /*****buttons*****/
-  .button-blue{
+/*****end input stuff*****/
+
+/****************************************/
+/*****background-colro*****/
+/****************************************/
+  .bg-blue{
     background-color: rgba(0,102,153, 0.8);
   }
-  .button-green{
+  .bg-green{
     background-color: rgba(0,153,51, 0.8);
   }
-  .button-red{
+  .bg-red{
     background-color: rgba(102,0,0, 0.8);
   }
-  .button-yellow{
+  .bg-yellow{
     background-color: rgba(204,204,0, 0.8);
   }
-/*****end input stuff*****/
+  .bg-grey{
+    background-color:rgba(200,200,200,0.8);
+  }
+  .bg-black{
+    background-color:rgba(0,0,0,0.8);
+  }
+  .bg-white{
+    background-color:rgba(255,255,255,0.4);
+  }
+  .bg-light-grey{
+    background-color:rgba(100,100,100,0.8);
+  }
 
 /****************************************/
 /*****container stuff*****/
@@ -85,20 +100,12 @@ div.contain-right{
 
 }
 
-  /*contain colors*/
-  .contain-grey{
-    background-color:rgba(200,200,200,0.8);
-  }
-
   /*headers*/
   .header{
     width:105%;
     padding:10px;
   }
 
-  .header-grey{
-    background-color:rgba(100,100,100,0.8);
-  }
 /*****end container stuff*****/
 
 
