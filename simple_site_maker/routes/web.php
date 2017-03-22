@@ -42,3 +42,12 @@ Route::get('/site/{site}/preview', 'SiteController@preview');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/image/test', 'PageController@image');
+Route::post('/image/upload', 'PageController@uploadImage');
+
+// images?
+// Route::get('/storage/{path}/{file}', [
+//   'as' => 'image',
+//   'uses' => 'PageController@getImage'
+//   ]);

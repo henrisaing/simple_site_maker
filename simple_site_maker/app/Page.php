@@ -11,6 +11,8 @@ class Page extends Model
     'title',
     'info',
     'background_image',
+    'background_img_url',
+    'img_type',
     'color_id_text',
     'color_id_background',
   ];

@@ -1,8 +1,8 @@
 <!-- resources/views/sites/index.blade.php -->
 @extends('layouts.app')
 @section('content')
-<div class="contain contain-grey">
-<div class="header header-grey">sites
+<div class="contain bg-grey">
+<div class="header bg-grey">sites
 {!! Form::button('add new site',[
   'func' => '/sites/new',
   'class' => 'lightbox-open',

@@ -35,7 +35,7 @@ input, textarea{
 button{
   background-color:rgba(100,100,100, 0.8);
   border:none;
-  color: #000;
+  color: #FFF;
   /*text-shadow: #000 0px 0px 1px;*/
   -webkit-font-smoothing: antialiased;
 }
