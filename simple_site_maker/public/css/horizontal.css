@@ -1,0 +1,36 @@
+body, html{
+  height:100%;
+  width:100%;
+  margin:0;
+}
+.horizontal{
+  height:100%;
+  width:100%;
+  display:inline-block;
+  float:left;
+  position:relative;
+}
+
+.dark-overlay{
+  height:100%;
+  width:100%;
+  background-color:rgba(0,0,0,0.4);
+}
+
+.content{
+  position:absolute;
+  bottom:0;
+  opacity: 0.8;
+  width:100%;
+  min-height:33%;
+  text-align:center;
+  vertical-align: middle;
+}
+
+.title{
+  position:absolute;
+  top:33%;
+  text-align:center;
+  width:100%;
+  font-size:2em;
+}
