@@ -7,9 +7,9 @@ info {!! Form::textarea('info', null, [
   'rows' => 3
 ]) !!}
   <br>
-text color {!! Form::select('color_text', $colorsText) !!}
-  <br>
 background image <input type="file" name="img" />
+  <br>
+text color {!! Form::select('color_text', $colorsText) !!}
   <br>
 background color {!! Form::select('color_background', $colorsBack) !!}
   <br>

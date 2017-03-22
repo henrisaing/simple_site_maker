@@ -47,7 +47,7 @@ class PageController extends Controller
     if ($request->file('img') != null):
       $file = $request->file('img');
       $ext = $file->extension();
-      $img_url = $file->store('public/'.$site[0]->id);
+      $img_url = $file->store('public/'.$site->id);
     else:
       $img_url = null;
       $ext = null;
@@ -60,7 +60,7 @@ class PageController extends Controller
       'info' => $request->info,
       'color_id_text' => $request->color_text,
       'color_id_background' => $request->color_background,
-      'background_image_url' => $img_url,
+      'background_img_url' => $img_url,
       'img_type' => $ext,
     ]);
     return redirect('/sites/'.$site->id.'/summary');
@@ -72,9 +72,10 @@ class PageController extends Controller
       $file = $request->file('img');
       $ext = $file->extension();
       $img_url = $file->store('public/'.$site[0]->id);
-    else:
-      $img_url = null;
-      $ext = null;
+      $page->update([
+        'background_img_url' => $img_url,
+        'img_type' => $ext,
+      ]);
     endif;
 
     $page->update([
@@ -82,8 +83,6 @@ class PageController extends Controller
       'info' => $request->info,
       'color_id_text' => $request->color_text,
       'color_id_background' => $request->color_background,
-      'background_img_url' => $img_url,
-      'img_type' => $ext,
     ]);
     return redirect('/sites/'.$site[0]->id.'/summary');
   }
