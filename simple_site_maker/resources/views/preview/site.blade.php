@@ -25,10 +25,10 @@
   <?php endforeach ?>
 </div>
 
-<?php foreach ($pages as $page): ?>
-
   <!-- start parallax -->
-  <?php if ($site->style == 'parallax'): ?>
+<?php if ($site->style == 'parallax'): ?>
+  <?php foreach ($pages as $page): ?>
+
     <?php if ($page->background_img_url != null): ?>
       <div class="parallax" style="background-image:url({{Storage::url($page->background_img_url)}})">
     <?php else: ?>
@@ -53,12 +53,25 @@
     </div>
   <!-- end parallax -->
 
-  <!-- start horizontal -->
-  <?php elseif($site->style == 'horizontal'): ?>
+  <?php endforeach ?>
+<!-- end pages loop  fot para-->
+
+<script type="text/javascript" src="{{asset('js/site-para.js')}}"></script>
+<!-- end para -->
+
+<!-- start horizontal -->
+<?php elseif($site->style == 'horizontal'): ?>
+  <!-- these look hella ugly -->
+  <a class="prev"><div id="previous"> < </div> </a>
+  <a class="next"><div id="next"> > </div> </a>
+  <!-- redo these later -->
+
+  <?php foreach ($pages as $page): ?>
+     <div id="{{$page->id}}" class="horizontal"
     <?php if ($page->background_img_url != null): ?>
-      <div class="horizontal" style="background-image:url({{Storage::url($page->background_img_url)}})">
+      style="background-image:url({{Storage::url($page->background_img_url)}})">
     <?php else: ?>
-      <div class="horizontal" style="background-color:#000">
+      style="background-color:#000">
     <?php endif; ?>
       <div class="dark-overlay">
         <div class="title" style="color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
@@ -71,11 +84,13 @@
         </div>
       </div>
     </div>
-  <?php endif; ?>
+  <?php endforeach; ?>
+<!-- end pages loop for horz -->
+
+<script type="text/javascript" src="{{asset('js/site-horizontal.js')}}"></script>
+<?php endif; ?>
   <!-- end horizontal -->
 
-<?php endforeach ?>
-<!-- end pages loop -->
-<script type="text/javascript" src="{{asset('js/site.js')}}"></script>
+
 </body>
 </html>

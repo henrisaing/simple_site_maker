@@ -41,7 +41,7 @@ Route::post('/color/{color}/update', 'ColorController@update');
 Route::get('/site/{site}/preview', 'SiteController@preview');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'SiteController@index');
 
 Route::get('/image/test', 'PageController@image');
 Route::post('/image/upload', 'PageController@uploadImage');
