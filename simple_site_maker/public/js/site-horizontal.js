@@ -5,6 +5,11 @@ $(document).ready(function(){
   });
   $('.horizontal').first().show().addClass('current');
 
+  var myElement = document.getElementById('body');
+  var touch = new Hammer(myElement);
+
+  touch.on("swipeleft", next);
+  touch.on("swiperight", previous);
 
   //nav click
   $('a.nav-link').on('click', function(event){
@@ -42,5 +47,5 @@ function show(div_id){
   $('.horizontal').each(function(){
     $(this).hide().removeClass('current');
   });
-  $(div_id).show().addClass('current');
+  $(div_id).show("fade").addClass('current');
 }

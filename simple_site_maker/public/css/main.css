@@ -44,3 +44,12 @@ a.lightbox-close{
 .hide{
   display:none;
 }
+
+@media (max-width: 480px){
+  .white_content{
+    top:5%;
+    left:5%;
+    width:90%;
+    height:90%;
+  }
+}

@@ -10,8 +10,10 @@
 </div>
   <?php foreach ($sites as $site): ?>
     <a href="{{url('/sites/'.$site->id.'/summary')}}">
-      {{$site->name}} | {{$site->style}} | {{$site->notes}}
+    <h4>{{$site->name}}</h4>
+      {{$site->style}} | {{$site->notes}}
     </a>
+    <a func="/site/{{$site->id}}/edit" class="lightbox-open"> [edit]</a>
     <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a>
     <hr>
   <?php endforeach ?>

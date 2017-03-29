@@ -3,20 +3,23 @@
 <html>
 <head>
   <title>{{$site->name}}</title>
+  <link rel="stylesheet" type="text/css" href="{{asset('css/site.css')}}">
+
+  <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 
   <!-- para or horz css -->
   <?php if ($site->style == 'parallax'): ?>
     <link href="{{ asset('css/parallax.css') }}" rel="stylesheet">
   <?php elseif($site->style == 'horizontal'): ?>
     <link href="{{ asset('css/horizontal.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
+    <script type="text/javascript" src="{{asset('js/hammer.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jquery-ui/jquery-ui.min.js')}}"></script>
   <?php endif; ?>
 
-  <link rel="stylesheet" type="text/css" href="{{asset('css/site.css')}}">
-
-  <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 
 </head>
-<body>
+<body id="body">
 <div id="nav">
   <?php foreach ($pages as $page): ?>
     <a href="#{{$page->id}}" class="nav-link">
@@ -62,8 +65,8 @@
 <!-- start horizontal -->
 <?php elseif($site->style == 'horizontal'): ?>
   <!-- these look hella ugly -->
-  <a class="prev"><div id="previous"> < </div> </a>
-  <a class="next"><div id="next"> > </div> </a>
+  <!-- <a class="prev"><div id="previous"> < </div> </a> -->
+  <!-- <a class="next"><div id="next"> > </div> </a> -->
   <!-- redo these later -->
 
   <?php foreach ($pages as $page): ?>

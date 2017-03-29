@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 // sites routes
 Route::get('/sites', 'SiteController@index');
+Route::get('/site/{site}/edit', 'SiteController@edit');
+Route::post('/site/{site}/update', 'SiteController@update');
 Route::get('/sites/new', 'SiteController@new');
 Route::post('/sites/create', 'SiteController@create');
 Route::get('/sites/{site}/summary', 'SiteController@summary');
@@ -51,3 +53,6 @@ Route::post('/image/upload', 'PageController@uploadImage');
 //   'as' => 'image',
 //   'uses' => 'PageController@getImage'
 //   ]);
+
+// Route::get('/test', 'SiteController@test');
+Route::get('/error', 'SiteController@error');

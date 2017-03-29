@@ -1,6 +1,9 @@
 <!-- resources/views/sites/summary.blade.php -->
 @extends('layouts.app')
 @section('content')
+
+<!-- NEEDS AUTH -->
+
 <div class="contain bg-grey">
   <div class="header bg-light-grey">{{$site->name}} summary <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a></div>
 
