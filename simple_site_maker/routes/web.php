@@ -21,7 +21,7 @@ Route::get('/site/{site}/edit', 'SiteController@edit');
 Route::post('/site/{site}/update', 'SiteController@update');
 Route::get('/sites/new', 'SiteController@new');
 Route::post('/sites/create', 'SiteController@create');
-Route::get('/sites/{site}/summary', 'SiteController@summary');
+Route::get('/site/{site}/summary', 'SiteController@summary');
 
 
 // pages routes

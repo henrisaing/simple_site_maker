@@ -36,7 +36,7 @@ class ColorController extends Controller
       'type' => $request->type,
       'value' => $request->value,
     ]);
-    return redirect('/sites/'.$site->id.'/summary');
+    return redirect('/site/'.$site->id.'/summary');
   }
 
   public function update(Request $request, Color $color){
@@ -46,7 +46,7 @@ class ColorController extends Controller
       'type' => $request->type,
       'value' => $request->value,
     ]);
-    return redirect('/sites/'.$site[0]->id.'/summary');
+    return redirect('/site/'.$site[0]->id.'/summary');
   }
 
 

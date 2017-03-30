@@ -12,18 +12,28 @@ class SiteController extends Controller
 {
     //
   public function index(){
-    $sites = Auth::user()->sites()->get();
-    return view('sites.index', [
-      'sites' => $sites  
-    ]);
+    if(Auth::check()):
+      $sites = Auth::user()->sites()->get();
+      $view = view('sites.index', [
+        'sites' => $sites  
+      ]);
+    else:
+      $view = view('errors.generic', [
+        'error' => 'Error',
+        'msg' => 'Please sign in.'
+      ]);
+    endif;
+
+    return $view;
   }
 
   public function edit(Site $site){
     if (AuthCheck::ownsSite($site)):
       $view = view('sites.edit', ['site' => $site]);
     else:
-      $view = redirect('/error');
+      $view = view('errors.perm');
     endif;
+
     return $view;
   }
 
@@ -43,18 +53,23 @@ class SiteController extends Controller
   }
 
   public function update(Request $request, Site $site){
-    $this->validate($request, []); //nothing yet
+    if (AuthCheck::ownsSite($site)):
+      $this->validate($request, []); //nothing yet
     
-    $site->update([
-      'name' => $request->name,
-      'style' => $request->style,
-      'notes' => $request->notes,
-    ]);
-    return redirect('/sites');
+      $site->update([
+        'name' => $request->name,
+        'style' => $request->style,
+        'notes' => $request->notes,
+      ]);
+      $view = redirect('/sites');
+    else:
+      $view = view('errors.perm');
+    endif;
+
+    return $view;
   }
 
   public function summary(Site $site){
-
     if (AuthCheck::ownsSite($site)):
       $pages = $site->pages()->get();
       $colors = $site->colors()->get();
@@ -64,7 +79,7 @@ class SiteController extends Controller
         'colors' => $colors,
       ]);
     else:
-      $view = redirect('/error');
+      $view = view('errors.perm');
     endif;
 
     return $view;
@@ -73,6 +88,7 @@ class SiteController extends Controller
   public function preview(Site $site){
     $pages = $site->pages()->get();
     $colors = $site->colors()->get();
+
     return view('preview.site', [
       'site' => $site,
       'pages' => $pages,
@@ -87,10 +103,18 @@ class SiteController extends Controller
     ]);
 
     $redirect = redirect('/');
-    return $redirect;
+
+    $error = 'Custom error';
+    $msg = 'Custom msgs too, yay!';
+
+    return view('errors.generic', [
+      'error' => $error,
+      'msg' => $msg,
+    ]);
   }
 
   public function error(){
     return view('errors.perm');
   }
+
 }

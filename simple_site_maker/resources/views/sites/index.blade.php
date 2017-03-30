@@ -9,7 +9,7 @@
 ]) !!}
 </div>
   <?php foreach ($sites as $site): ?>
-    <a href="{{url('/sites/'.$site->id.'/summary')}}">
+    <a href="{{url('/site/'.$site->id.'/summary')}}">
     <h4>{{$site->name}}</h4>
       {{$site->style}} | {{$site->notes}}
     </a>

@@ -32,7 +32,7 @@ class PageController extends Controller
         'colorsBack' => $colorsBack,
       ]);
     else:
-      $view = redirect('/error');
+      $view = view('errors.perm');
     endif;
 
     return $view;
@@ -49,7 +49,7 @@ class PageController extends Controller
         'colorsBack' => $colorsBack,
       ]);
     else:
-      $view = redirect('/error');
+      $view = view('errors.perm');
     endif;
 
     return $view;
@@ -57,47 +57,60 @@ class PageController extends Controller
 
 
   public function create(Site $site, Request $request){
-    if ($request->file('img') != null):
-      $file = $request->file('img');
-      $ext = $file->extension();
-      $img_url = $file->store('public/'.$site->id);
+    if (AuthCheck::ownsSite($site)):
+      if ($request->file('img') != null):
+        $file = $request->file('img');
+        $ext = $file->extension();
+        $img_url = $file->store('public/'.$site->id);
+      else:
+        $img_url = null;
+        $ext = null;
+      endif;
+
+      
+
+      $site->pages()->create([
+        'title' => $request->title,
+        'info' => $request->info,
+        'color_id_text' => $request->color_text,
+        'color_id_background' => $request->color_background,
+        'background_img_url' => $img_url,
+        'img_type' => $ext,
+      ]);
+      $view = redirect('/site/'.$site->id.'/summary');
     else:
-      $img_url = null;
-      $ext = null;
+      $view = view('errors.perm');
     endif;
 
-    
-
-    $site->pages()->create([
-      'title' => $request->title,
-      'info' => $request->info,
-      'color_id_text' => $request->color_text,
-      'color_id_background' => $request->color_background,
-      'background_img_url' => $img_url,
-      'img_type' => $ext,
-    ]);
-    return redirect('/sites/'.$site->id.'/summary');
+    return $view;
   }
 
   public function update(Request $request, Page $page){
     $site = $page->site()->get();
-    if ($request->file('img') != null):
-      $file = $request->file('img');
-      $ext = $file->extension();
-      $img_url = $file->store('public/'.$site[0]->id);
+
+    if (AuthCheck::ownsSite($site[0])):
+      if ($request->file('img') != null):
+        $file = $request->file('img');
+        $ext = $file->extension();
+        $img_url = $file->store('public/'.$site[0]->id);
+        $page->update([
+          'background_img_url' => $img_url,
+          'img_type' => $ext,
+        ]);
+      endif;
+
       $page->update([
-        'background_img_url' => $img_url,
-        'img_type' => $ext,
+        'title' => $request->title,
+        'info' => $request->info,
+        'color_id_text' => $request->color_text,
+        'color_id_background' => $request->color_background,
       ]);
+      $view = redirect('/site/'.$site[0]->id.'/summary');
+    else:
+      $view = view('errors.perm');
     endif;
 
-    $page->update([
-      'title' => $request->title,
-      'info' => $request->info,
-      'color_id_text' => $request->color_text,
-      'color_id_background' => $request->color_background,
-    ]);
-    return redirect('/sites/'.$site[0]->id.'/summary');
+    return $view;
   }
 
 // testing images
