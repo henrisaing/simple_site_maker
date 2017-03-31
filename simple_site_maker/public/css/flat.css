@@ -83,6 +83,7 @@ button:hover{
   margin-left:auto;
   margin-right:auto;
   padding:10px;
+  position:relative;
 }
 
 div.contain-left{
@@ -96,7 +97,7 @@ div.contain-right{
   display:block;
   width:49%;
   float:right;
-    position: relative;
+  position: relative;
 
 }
 
@@ -156,3 +157,10 @@ td, th{
   text-align:center;
 }
 /*****end misc stuff*****/
+
+@media (max-width: 480px){
+  div.contain-left, div.contain-right{
+    width:100%;
+    clear:both;
+  }
+}

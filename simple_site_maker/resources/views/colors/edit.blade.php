@@ -14,6 +14,7 @@ name {!! Form::text('name', $color->name, [
 <br>
   {!! Form::button('update color',[
     'type' => 'submit',
+    'class' => 'lb-close bg-green'
   ]) !!}
 {!! Form::close() !!}
 

@@ -9,13 +9,16 @@
 ]) !!}
 </div>
   <?php foreach ($sites as $site): ?>
-    <a href="{{url('/site/'.$site->id.'/summary')}}">
-    <h4>{{$site->name}}</h4>
-      {{$site->style}} | {{$site->notes}}
-    </a>
-    <a func="/site/{{$site->id}}/edit" class="lightbox-open"> [edit]</a>
-    <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a>
-    <hr>
+    <div class="contain-left bg-grey" >
+      <a href="{{url('/site/'.$site->id.'/summary')}}">
+      <h4>{{$site->name}}</h4>
+        {{$site->style}} | {{$site->notes}}
+      </a>
+      <a func="/site/{{$site->id}}/edit" class="lightbox-open" href="#"> [edit]</a>
+      <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a>
+
+      <!-- <div class="preview-thumb" id="{{$site->id}}"></div> -->
+    </div>
   <?php endforeach ?>
 </div>
 @endsection

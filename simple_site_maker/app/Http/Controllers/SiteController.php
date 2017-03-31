@@ -44,11 +44,23 @@ class SiteController extends Controller
   public function create(Request $request){
     $this->validate($request, []); //nothing yet
     
-    Auth::user()->sites()->create([
+    $site = Auth::user()->sites()->create([
       'name' => $request->name,
       'style' => $request->style,
       'notes' => $request->notes,
     ]);
+
+    $site->colors()->create([
+      'name' => 'black',
+      'type' => 'text',
+      'value' => '#000000',
+    ]);
+    $site->colors()->create([
+      'name' => 'white',
+      'type' => 'background',
+      'value' => '#eeeeee',
+    ]);
+
     return redirect('/sites');
   }
 

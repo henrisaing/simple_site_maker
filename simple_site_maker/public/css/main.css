@@ -45,6 +45,14 @@ a.lightbox-close{
   display:none;
 }
 
+.preview-thumb{
+  width:80%;
+  height:200px;
+}
+
+a.navbar-brand:hover{
+}
+
 @media (max-width: 480px){
   .white_content{
     top:5%;

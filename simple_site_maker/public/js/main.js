@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $('a.lightbox-open , button.lightbox-open').click(function(){
+  $('a.lightbox-open , button.lightbox-open').click(function(e){
+    e.preventDefault();
     $('#fade').css('display','block');
     $('#light').css('display','block');
 
@@ -22,4 +23,14 @@ $(document).ready(function(){
       $("#main").html(data);
     });
   });
+
+  // $('.preview-thumb').each(function(){
+  //   var siteId = $(this).attr('id'); 
+  //   console.log(siteId);
+  //   $.get('/site/'+siteId+'/preview', function(data){
+  //     $('#'+siteId).html(data);
+  //     console.log('abc');
+
+  //   });
+  // });
 });

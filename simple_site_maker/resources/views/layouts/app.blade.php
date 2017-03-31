@@ -41,6 +41,11 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    @if (Auth::check())
+                    <a href="{{url('/sites')}}" class="navbar-brand">
+                        My Sites
+                    </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -69,9 +74,9 @@
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+                    </form>
                                     </li>
                                 </ul>
                             </li>
@@ -85,7 +90,7 @@
     </div>
     <!-- lightbox popup div -->
     <div id="light" class="white_content">
-        <div id="lightbox-content"> Opps! Error has occured.</div> 
+        <div id="lightbox-content"></div> 
         <div class="lb-close">
             <!-- <a href="#" class="lightbox-close">Close</a> -->
             {!! Form::button('close',[

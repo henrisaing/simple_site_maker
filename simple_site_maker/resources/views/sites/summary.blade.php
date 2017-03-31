@@ -52,6 +52,7 @@
 <!-- end contain  -->
 
 @if(App::environment('local'))
+<div id="debug" class="clear">
 <h3>Debug</h3>
     <?php foreach ($pages as $page): ?>
     back:
@@ -67,7 +68,7 @@
 <hr>
 <?php print_r($site->colors()->where('type', 'background')->get()->pluck('name','id')); ?>
 
-
+</div>
 @endif
 
 @endsection
