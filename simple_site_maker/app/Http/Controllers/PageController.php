@@ -70,8 +70,8 @@ class PageController extends Controller
       
 
       $site->pages()->create([
-        'title' => $request->title,
-        'info' => $request->info,
+        'title' =>clean($request->title),
+        'info' => clean($request->info),
         'color_id_text' => $request->color_text,
         'color_id_background' => $request->color_background,
         'background_img_url' => $img_url,
@@ -100,8 +100,8 @@ class PageController extends Controller
       endif;
 
       $page->update([
-        'title' => $request->title,
-        'info' => $request->info,
+        'title' =>clean($request->title),
+        'info' => clean($request->info),
         'color_id_text' => $request->color_text,
         'color_id_background' => $request->color_background,
       ]);

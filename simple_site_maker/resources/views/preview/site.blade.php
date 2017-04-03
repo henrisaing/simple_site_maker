@@ -40,7 +40,7 @@
       <div class="fade-white">
         <div class="mid-text" style="background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};
       color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
-          {{$page->title}}
+          {!!$page->title!!}
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
       background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};
       color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
       <p>
-        {{$page->info}}
+        {!!$page->info!!}
       </p>
       
     </div>
@@ -78,12 +78,12 @@
     <?php endif; ?>
       <div class="dark-overlay">
         <div class="title" style="color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
-          {{$page->title}}
+          {!! $page->title !!}
         </div>
 
         <div class="content" style="color:{{$colors->where('id', $page->color_id_text)->first()->value}};
         background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};">
-          <p>{{$page->info}}</p>
+          <p>{!! $page->info !!}</p>
         </div>
       </div>
     </div>
