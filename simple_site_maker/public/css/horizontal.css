@@ -10,6 +10,10 @@ body, html{
   display:inline-block;
   float:left;
   position:relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .dark-overlay{
