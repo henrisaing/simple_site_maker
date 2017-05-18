@@ -22,6 +22,8 @@ Route::post('/site/{site}/update', 'SiteController@update');
 Route::get('/sites/new', 'SiteController@new');
 Route::post('/sites/create', 'SiteController@create');
 Route::get('/site/{site}/summary', 'SiteController@summary');
+Route::delete('/site/{site}/delete', 'SiteController@delete');
+Route::get('/manage', 'SiteController@manage');
 
 
 // pages routes

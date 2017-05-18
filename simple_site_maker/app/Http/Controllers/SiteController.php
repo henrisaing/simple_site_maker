@@ -27,6 +27,22 @@ class SiteController extends Controller
     return $view;
   }
 
+  public function manage(){
+    if(Auth::check()):
+      $sites = Auth::user()->sites()->get();
+      $view = view('sites.manage', [
+        'sites' => $sites  
+      ]);
+    else:
+      $view = view('errors.generic', [
+        'error' => 'Error',
+        'msg' => 'Please sign in.'
+      ]);
+    endif;
+
+    return $view;
+  }
+
   public function edit(Site $site){
     if (AuthCheck::ownsSite($site)):
       $view = view('sites.edit', ['site' => $site]);
@@ -127,6 +143,17 @@ class SiteController extends Controller
 
   public function error(){
     return view('errors.perm');
+  }
+
+  public function delete(Site $site){
+    if (AuthCheck::ownsSite($site)):
+      $site->delete();
+      $view = redirect('/home');
+    else:
+      $view = view('errors.perm');
+    endif;
+
+    return $view;
   }
 
 }

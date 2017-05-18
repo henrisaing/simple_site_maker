@@ -109,7 +109,16 @@ div.contain-right{
 
 /*****end container stuff*****/
 
-
+/****************************************/
+/*****b0xx stuff*****/
+/****************************************/
+.box-left{
+  text-align:left;
+}
+.box-right{
+  text-align:right;
+}
+/*****end b0xx stuff*****/
 
 /****************************************/
 /*****table stuff*****/

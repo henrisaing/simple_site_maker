@@ -5,8 +5,11 @@
 <div class="header bg-grey">sites
 {!! Form::button('add new site',[
   'func' => '/sites/new',
-  'class' => 'lightbox-open',
+  'class' => 'lightbox-open bg-green',
 ]) !!}
+<a href="/manage">
+  <button class="button bg-red">delete sites</button>
+</a>
 </div>
   <?php foreach ($sites as $site): ?>
     <div class="contain-left bg-grey" >
@@ -16,8 +19,6 @@
       </a>
       <a func="/site/{{$site->id}}/edit" class="lightbox-open" href="#"> [edit]</a>
       <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a>
-
-      <!-- <div class="preview-thumb" id="{{$site->id}}"></div> -->
     </div>
   <?php endforeach ?>
 </div>
