@@ -63,7 +63,11 @@ button.delete-button{
   float:left;
 }
 
-a.navbar-brand:hover{
+a{
+  cursor:pointer;
+}
+a:hover{
+  text-decoration: underline;
 }
 
 @media (max-width: 480px){

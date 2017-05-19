@@ -32,6 +32,7 @@ Route::get('/site/{site}/pages/new', 'PageController@new');
 Route::post('/site/{site}/pages/create', 'PageController@create');
 Route::get('/page/{page}/edit', 'PageController@edit');
 Route::post('/page/{page}/update', 'PageController@update');
+Route::delete('/page/{page}/delete', 'PageController@delete');
 
 
 // color routes

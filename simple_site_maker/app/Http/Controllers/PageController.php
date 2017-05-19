@@ -113,36 +113,15 @@ class PageController extends Controller
     return $view;
   }
 
-// testing images
-  // public function image(){
-  //   return view('pages.image');
-  // }
+  public function delete(Page $page){
+    $site = $page->site()->get();
 
-  // public function uploadImage(Request $request){
-  //   $file = $request->file('image');
-  //   $ext = $file->extension();
-  //   $img_url = $file->store('test');
+    if (AuthCheck::ownsSite($site[0])):
+      $page->delete();
+    endif;
 
-  //   return $img_url;
-  // }
-  // end image test
+    $view = redirect('/site/'.$site[0]->id.'/summary');
 
-  // public function getImage($path, $file){
-  //   if($file){
-  //       $url = $path."/".$file;
-  //   }else{
-  //       $url = $path;
-  //   }
-  //   $path = storage_path("app/public/") . $url;
-
-  //   if(!File::exists($path)) abort(404);
-
-  //   $file = File::get($path);
-  //   $type = File::mimeType($path);
-
-  //   $response = Response::make($file, 200);
-  //   $response->header("Content-Type", $type);
-
-  //   return $response;
-  // }
+    return $view;
+  }
 }

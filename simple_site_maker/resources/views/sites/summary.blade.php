@@ -16,12 +16,23 @@
       ]) !!}
     </div> 
     <?php foreach ($pages as $page): ?>
-      <a class="lightbox-open" func="/page/{{$page->id}}/edit">
-      <div class="clear" style="background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
-       {{$page->title}} |
-       {{$page->info}}
+      <div class="width-100 clear">
+        <form action="/page/{{$page->id}}/delete" method="post" style="display:inline">
+        {{csrf_field()}}
+        {{method_field('delete')}}
+        <a class="lightbox-open" func="/page/{{$page->id}}/edit">
+        <div class="width-75 float-left" style="background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
+         {{$page->title}} |
+         {{$page->info}}
+       </div>
+       </a>
+       <div class="width-20 float-left">
+        <button type="submit" class="bg-red">delete</button>
+        
+       </div>
+       </form>
      </div>
-     </a>
+
     <?php endforeach ?> 
   </div>
   
