@@ -50,6 +50,47 @@ a.lightbox-close{
   height:200px;
 }
 
+/*PAGE SITE PREVIEWS*/
+.preview-page{
+  height:240px;
+  width:340px;
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.preview-page-title{
+position:relative;
+    top:50%;
+    left:0%;
+    /*background-color:#373737;*/
+    /*background-color:#9F727C;*/
+    /*color:#fff;*/
+    font-size:1em;
+    text-align:center;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    /*font-family: 'Fredericka the Great', cursive;*/
+    /*font-family: 'Prata', serif;*/
+    /*font-family: 'Marcellus SC', serif;*/
+    /*font-family: 'Cinzel Decorative', cursive;*/
+    font-family: 'Playfair Display SC', serif;
+}
+
+.preview-page-info{
+  position:relative;
+  width:80%;
+  font-size:1em;
+  /*padding:50px 10%;*/
+  text-align:center;
+  word-wrap: break-word;
+  font-weight:300;
+  font-family: 'Lora', serif;
+  top:70%;
+}
+/*END PREVIEWS*/
+
 button.delete-button{
   background:none!important;
   color:inherit;

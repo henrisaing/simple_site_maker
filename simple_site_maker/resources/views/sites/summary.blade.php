@@ -7,6 +7,7 @@
 <div class="contain bg-grey">
   <div class="header bg-light-grey">{{$site->name}} summary <a href="{{url('/site/'.$site->id.'/preview')}}"> [preview]</a></div>
 
+<!-- Pages -->
   <div class="contain contain-left bg-grey">
     <div class="header bg-light-grey">
     Pages
@@ -16,7 +17,9 @@
       ]) !!}
     </div> 
     <?php foreach ($pages as $page): ?>
-      <div class="width-100 clear">
+
+    <!-- ORIGINAL NO IMG PREVIEW -->
+      <!-- <div class="width-100 clear">
         <form action="/page/{{$page->id}}/delete" method="post" style="display:inline">
         {{csrf_field()}}
         {{method_field('delete')}}
@@ -31,11 +34,52 @@
         
        </div>
        </form>
+     </div> -->
+
+     <!-- new pages preview thumb -->
+     <br>
+     
+     <!-- main div -->
+     <a class="lightbox-open" func="/page/{{$page->id}}/edit">
+      <?php if ($page->background_img_url != null): ?>
+        <div class="preview-page" 
+     style="background-image:url({{Storage::url($page->background_img_url)}})">
+
+     <?php else: ?>
+      <div class="preview-page">
+     <?php endif; ?>
+
+     <!-- delete -->
+     <form action="/page/{{$page->id}}/delete" method="post" style="display:inline">
+        {{csrf_field()}}
+        {{method_field('delete')}}
+      <button type="submit" class="bg-red" style="position:relative; top:0; left:100%">X</button>
+      </form>
+
+     <!-- title -->
+     <div class="preview-page-title" style="background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};
+      color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
+          {!!$page->title!!}
+    </div>
+
+    <!-- info -->
+    <div class="preview-page-info" id="{{$page->id}}"
+      style="
+      background-color:{{$colors->where('id', $page->color_id_background)->first()->value}};
+      color:{{$colors->where('id', $page->color_id_text)->first()->value}}">
+      <p>
+        {!!$page->info!!}
+      </p>
+    </div>
+
      </div>
+     </a>
+     <!-- end preview thumb -->
 
     <?php endforeach ?> 
   </div>
-  
+
+  <!-- Colors -->
   <div class="contain contain-right bg-grey">
     <div class="header bg-light-grey">Colors   
       {!! Form::button('+',[
