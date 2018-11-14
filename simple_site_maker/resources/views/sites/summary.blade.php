@@ -53,7 +53,7 @@
      <form action="/page/{{$page->id}}/delete" method="post" style="display:inline">
         {{csrf_field()}}
         {{method_field('delete')}}
-      <button type="submit" class="bg-red" style="position:relative; top:0; left:100%">X</button>
+      <button type="submit" class="bg-red" style="position:relative; top:0; left:100%">&times;</button>
       </form>
 
      <!-- title -->

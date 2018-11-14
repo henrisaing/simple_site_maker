@@ -86,7 +86,23 @@
             </div>
         </nav>
 
+<!-- side nav -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+<!-- end side nav -->
+
+    
+
+    <div id="main">
+    <span onclick="openNav()">open</span>
         @yield('content')
+    </div>
+
     </div>
     <!-- lightbox popup div -->
     <div id="light" class="white_content">
