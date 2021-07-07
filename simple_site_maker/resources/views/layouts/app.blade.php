@@ -86,7 +86,35 @@
             </div>
         </nav>
 
+<!-- side nav -->
+    @if (!Auth::guest())
+      <div id="mySidenav" class="sidenav">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+        <a href="#" class="lightbox-open" func="/sites/new">New Site</a>
+        <a href="/sites">My Sites</a>
+
+        <?php foreach (Auth::user()->sites()->get() as $site): ?>
+          <a href="/site/{{$site->id}}/summary">
+              <?php echo $site->name ?>
+          </a>
+        <?php endforeach ?>
+      </div>
+    @endif
+<!-- end side nav -->
+
+    
+
+    <div id="main">
+    @if (!Auth::guest())
+      <div class="sidenav-control">
+        <button class="side-nav-btn" id="open-nav" onclick="openNav()">></button>
+      </div>
+    @endif
+
         @yield('content')
+    </div>
+
     </div>
     <!-- lightbox popup div -->
     <div id="light" class="white_content">
